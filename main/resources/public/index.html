@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="scripts/contentloader.js"></script>
+        <script src="scripts/controller.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+
+    <body>
+        <div class="nav-wrapper">
+	        <div class="hdr">
+	    		<p>Profile Manager ⚙</p>
+	    	</div>
+        	<span class="marker view-marker"></span>
+        	<button class="load-popup btn view" id="i">View All</button>
+        	<span class="marker add-marker"></span>
+        	<button class="load-popup btn add" id="ii">Add Person</button>
+        	<span class="marker search-marker"></span>
+        	<button class="load-popup btn search" id="iii">Search</button>
+           	<span class="res-marker marker"></span>
+           	<a href="/greetings"><button class = "btn res-endpoint">"/Hello" Endpoint</button></a>
+           	<span class="topics-marker marker"></span>
+            <a href="/some/random/endpoint"><button class = "btn topics-endpoint">"/some/random/endpoint"</button></a>
+        </div>
+        <div></div>
+        <div class="popup-wrapper">
+        	<div class="popup-parent">
+	        	<div class="popup">
+	        		<div class="popup-x"><p>x</p></div>
+	        		<div class="content-wrapper">
+	        			<div class="content i">
+	        				<p class="popup-hdr"> SHOWING ALL AVAILABLE PROFILES </p>
+	        				<div class="all">
+	        					<p></p>
+	        				</div>
+	        			</div>
+	        			<div class="content ii">
+	        				<div class="new">
+	        					<form>
+	        						<label class="fname-lbl">First Name</label>
+	        						<input type="text" class="fname"/>
+	        						<label class="lname-lbl">Last Name</label>
+	        						<input type="text" class="lname"/>
+	        						<label class="email-lbl">Email</label>
+	        						<input type="text" class="email"/>
+	        						<button type="button" class="btn save"> Add Profile </button>
+	        					</form>
+	        					<div class="response">
+	        						<p></p>
+	        					</div>
+	        				</div>
+	        			</div>
+	        			<div class="content iii">
+	        				<p class="popup-hdr"> VIEW PERSON DETAILS </p>
+	        				<div class="results">
+	        					<div class="available">
+	        						<p class="">The following are the available profiles. Enter any of the following ids to view a profile's details.</p>
+	        						<div class="available-ids">
+	        							
+	        						</div>
+	        					</div>
+	        					<form>
+	        						<label>Enter Person's Id </label>
+	        						<input type="text" class="id" />
+	        						<button type="button" class="btn search-details">Search</button>
+	        					</form>
+	        					<div class="search-results"> 
+	        						<p></p>
+	        					</div>
+	        				</div>
+	        			</div>
+	        		</div>
+	        	</div>
+        	</div>
+        </div>
+    </body>
+</html>
