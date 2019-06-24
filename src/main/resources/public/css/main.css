@@ -38,7 +38,8 @@ a {
     height: 44px;
     text-align: center;
     width: 250px;
-    font-style: italic;
+    letter-spacing: -1px;
+    font-weight: 600;
 }
 
 .marker {
@@ -194,10 +195,51 @@ a {
 .ii {
 	overflow: auto;	
 }
+
 .popup-hdr {
 	height: 44px;
 	line-height: 44px;
 	text-align: center;
+}
+
+.service-response {
+	display:none;
+	position: absolute;
+    top: -1px;
+    height: 80px;
+    background: rgba(23, 193, 23, 0.5);
+    width: 100%;
+    z-index: 1;
+}
+
+.service-response p {
+	height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+	font-family: arial;
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 18px;
+    border-radius: 3px;
+    color: #1f1d1d;
+}
+
+.service-response p:hover {
+	cursor: pointer;
+	box-shadow: 0 0 2px #444;
+}
+
+.service-response div {
+	position: absolute;
+	width: 100%;
+	line-height: 80px;
+    text-align: center;
+    color: #444;
+    font-family: Calibri;
+    font-size: 20px;
+    letter-spacing: -1px;
 }
 
 .new form, .results form {
@@ -207,9 +249,6 @@ a {
     border-radius: 5px;
 }
 
-.results form {
-	padding-top: 10px;
-}
 /* Form Styling*/
 
 input {
@@ -246,7 +285,7 @@ input:focus {
     color: #fff;
 }
 
-.all,.available,.search-results,.response {
+.all,.search-results,.response {
 	border-top: 0.09px solid #ccc;
     padding: 9px 0 0 0;
     height: 100px;
@@ -275,11 +314,10 @@ input:focus {
 }
 
 .search-results {
-    margin: 15px;
+	padding-top: 30px;
+    font-size: 16px;
     font-family: monospace;
     color: #299a29;
+    letter-spacing: -1px;
 }
 
-.available-ids {
-	padding: 9px 0 0 9px;
-}

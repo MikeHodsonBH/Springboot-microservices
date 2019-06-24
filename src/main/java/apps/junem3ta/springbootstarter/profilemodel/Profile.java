@@ -1,27 +1,40 @@
 package apps.junem3ta.springbootstarter.profilemodel;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Profile {
 	
-	private String id;
+	@Id
+	private int id;
+    private String email;
     private String firstname;
     private String lastname;
-    private String email;
      
     public Profile(){}
      
-    public Profile(String id, String firstname, String lastname, String email){
+    public Profile(int id, String email, String firstname, String lastname){
         this.id = id;
+        this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.email = email;
     }
      
     /* Id */
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+    
+    /* Email */
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
     
     /* First Name */
@@ -40,13 +53,6 @@ public class Profile {
         this.lastname = lastname;
     }
     
-    /* Email */
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
 
 
