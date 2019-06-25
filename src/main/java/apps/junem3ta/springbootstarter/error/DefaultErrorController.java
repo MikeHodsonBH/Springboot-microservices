@@ -11,7 +11,7 @@ public class DefaultErrorController implements ErrorController {
 	
 	@RequestMapping(value = PATH)
 	public String handleError() {
-		return "Under developement. Try out '/res' or '/topics' in the meanwhile :) !!";
+		return "404 Not Found";
 	}
 
 	@Override

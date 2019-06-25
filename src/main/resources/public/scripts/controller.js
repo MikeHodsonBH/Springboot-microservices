@@ -36,43 +36,49 @@ $(document).ready(function() {
 	
 	function saveProfile() {
 		var inputCheck = true;
+		var email = $(".email").val();
 		var fname = $(".fname").val();
 		var lname = $(".lname").val();
-		var email = $(".email").val();
 		
 		inputCheck = fname.length == 0 ? false : (lname.length== 0 ? false : (email.length == 0 ? false : true));
 		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		var nameReg = /^[A-Za-z]*$/;
 		var emailCheck = emailReg.test(email);
+	    var nameCheck = nameReg.test(fname) && nameReg.test(lname);
 		
 		if(inputCheck) {
 			if(emailCheck) {
-				var currId = Math.floor(Math.random() * 9999) + 1223;
-				var data = {
-					id : currId,
-					firstname : fname,
-					lastname : lname,
-					email: email
-				}
-				$.ajax({
-					method : "POST",
-					contentType : "application/json",
-					url : window.location + "profilemanager/save",
-					data: JSON.stringify(data),
-					dataType: "json",
-					success: function(result) {
-						profile = result.data;
-						var buildResponse = "Profile : " + profile.firstname + " " + profile.lastname + " (" + profile.email + ") added succesfully.";
-						$(".service-response div").text(buildResponse);
-						$(".service-response").fadeIn();
-						setTimeout(function() {
-							$(".service-response").fadeOut();
-						}, 10000);
-						$(".popup-wrapper").fadeOut();
-					},
-					error: function(e) {
-						alert(JSON.stringify(e));
+				if(nameCheck) {
+					var currId = Math.floor(Math.random() * 9999) + 1223;
+					var data = {
+						id : currId,
+						firstname : fname,
+						lastname : lname,
+						email: email
 					}
-				});
+					$.ajax({
+						method : "POST",
+						contentType : "application/json",
+						url : window.location + "profilemanager/save",
+						data: JSON.stringify(data),
+						dataType: "json",
+						success: function(result) {
+							profile = result.data;
+							var buildResponse = "Profile : " + profile.firstname + " " + profile.lastname + " (" + profile.email + ") added succesfully.";
+							$(".service-response div").text(buildResponse);
+							$(".service-response").fadeIn();
+							setTimeout(function() {
+								$(".service-response").fadeOut();
+							}, 10000);
+							$(".popup-wrapper").fadeOut();
+						},
+						error: function(e) {
+							alert(JSON.stringify(e));
+						}
+					});
+				} else {
+					alert("Invalid input. Please check the name provided and try again.");
+				}
 			} else {
 				alert("Invalid Email");
 			}
