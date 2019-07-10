@@ -4,21 +4,21 @@
  Cmd implementation currently
 */
 
-SpringBootSoapClientApplication.java
-package com.example.howtodoinjava.springbootsoapclient;
+CustomerWsClientApplication.java
+package com.june.apps;
  
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import com.example.howtodoinjava.schemas.school.StudentDetailsRequest;
-import com.example.howtodoinjava.schemas.school.StudentDetailsResponse;
+import com.june.apps.schemas.customer.GetUserRequest;
+import com.june.apps.schemas.school.GetUserResponse;
  
 @SpringBootApplication
-public class SpringBootSoapClientApplication {
+public class CustomerWsClientApplication {
  
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootSoapClientApplication.class, args);
+        SpringApplication.run(CustomerWsClientApplication.class, args);
     }
      
     @Bean
@@ -29,9 +29,9 @@ public class SpringBootSoapClientApplication {
             if(args.length>0){
                 name = args[0];
             }
-            StudentDetailsRequest request = new StudentDetailsRequest();
+            GetUserRequest request = new GetUserRequest();
             request.setName(name);
-            StudentDetailsResponse response =(StudentDetailsResponse) soapConnector.callWebService("http://localhost:9090/customerWS/users", request);
+            GetUserResponse response =(GetUserResponse) soapConnector.callWebService("http://localhost:9090/customerWS/users", request);
             System.out.println("Got Response As below ========= : ");
             System.out.println("Name : "+response.getUser().getName());
             System.out.println("Id : "+response.getUser().getCustId());
