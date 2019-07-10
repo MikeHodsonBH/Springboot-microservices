@@ -1,0 +1,41 @@
+/*
+ Modify connector to work in @RestEndpoint
+ Maven's JAX-WS??
+ Cmd implementation currently
+*/
+
+SpringBootSoapClientApplication.java
+package com.example.howtodoinjava.springbootsoapclient;
+ 
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import com.example.howtodoinjava.schemas.school.StudentDetailsRequest;
+import com.example.howtodoinjava.schemas.school.StudentDetailsResponse;
+ 
+@SpringBootApplication
+public class SpringBootSoapClientApplication {
+ 
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootSoapClientApplication.class, args);
+    }
+     
+    @Bean
+    CommandLineRunner lookup(SOAPConnector soapConnector) {
+        return args -> {
+        /*Add customer name here*/
+            String name = "";
+            if(args.length>0){
+                name = args[0];
+            }
+            StudentDetailsRequest request = new StudentDetailsRequest();
+            request.setName(name);
+            StudentDetailsResponse response =(StudentDetailsResponse) soapConnector.callWebService("http://localhost:9090/customerWS/users", request);
+            System.out.println("Got Response As below ========= : ");
+            System.out.println("Name : "+response.getUser().getName());
+            System.out.println("Id : "+response.getUser().getCustId());
+            System.out.println("OverDrafts : "+response.getUser().getOD());
+        };
+    }
+}
