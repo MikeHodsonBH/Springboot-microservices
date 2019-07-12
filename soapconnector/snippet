@@ -31,7 +31,7 @@ public class CustomerWsClientApplication {
             }
             GetUserRequest request = new GetUserRequest();
             request.setName(name);
-            GetUserResponse response =(GetUserResponse) soapConnector.callWebService("http://localhost:9090/customerWS/users", request);
+            GetUserResponse response =(GetUserResponse) soapConnector.callWebService("http://localhost:9090/customerWS", request);
             System.out.println("Got Response As below ========= : ");
             System.out.println("Name : "+response.getUser().getName());
             System.out.println("Id : "+response.getUser().getCustId());
