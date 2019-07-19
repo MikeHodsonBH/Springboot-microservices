@@ -39,4 +39,5 @@ secrets.yml
 .sts4-cache
 soapconnector
 soapconnector/
-*application.properties
+src/main/resources/application.properties
+!src/main/resources/temp.pfile
