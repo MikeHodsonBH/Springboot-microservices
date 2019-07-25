@@ -1,2 +1,2 @@
 # SOAP-customer-web-service
-Customer data Web-Service
+SOAP Web-Service. Exposes an endpoint for accessing customer Data from a service.
