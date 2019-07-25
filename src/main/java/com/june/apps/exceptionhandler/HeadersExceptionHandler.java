@@ -12,9 +12,7 @@ public class HeadersExceptionHandler {
 	
 	@ExceptionHandler
 	public ResponseEntity<String> handleInvalidHeaderExceptionHandler(InvalidHeadersException exception) {
-		
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.PRECONDITION_FAILED);
-		
 	}
 	
 }

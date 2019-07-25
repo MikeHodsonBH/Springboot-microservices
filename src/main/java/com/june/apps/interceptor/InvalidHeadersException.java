@@ -1,6 +1,6 @@
 package com.june.apps.interceptor;
 
-public class InvalidHeadersException {
+public class InvalidHeadersException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1L;
 	

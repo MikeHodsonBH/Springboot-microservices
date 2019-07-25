@@ -16,19 +16,14 @@ public class Config implements WebMvcConfigurer {
 	@Autowired
 	private RequestHeaderInterceptor requestHeaderInterceptor;
 	
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(requestHeaderInterceptor);
-	}
-	
 	@Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         marshaller.setContextPath("com.june.apps.schemas.customer");
         return marshaller;
     }
- 
-    @Bean
+	
+	@Bean
     public SOAPConnector soapConnector(Jaxb2Marshaller marshaller) {
         SOAPConnector client = new SOAPConnector();
         client.setDefaultUri("http://localhost:9090/customerWS/users");
@@ -36,4 +31,10 @@ public class Config implements WebMvcConfigurer {
         client.setUnmarshaller(marshaller);
         return client;
     }
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(requestHeaderInterceptor).addPathPatterns("/customerWS/validateSourceApp", "/customerWS/getGraphicProcessors");	
+	}
+	
 }
