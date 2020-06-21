@@ -10,5 +10,5 @@ Springboot Microservices
 | — _SOAP-customer-web-service-client_
  
 
-[Notes](https://medium.com/@junem3ta/decluttering-your-github-repository-cc4135b0567) on shared repositories in git.
+[Notes](https://medium.com/@nmdaniel/decluttering-your-github-repository-cc4135b0567) on shared repositories in git.
 
